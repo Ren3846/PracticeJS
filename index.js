@@ -1,4 +1,4 @@
-const views = [
+let views = [
     {id: 1, title: 'Mountain', title2: 'Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains'},
     {id: 2, title: 'Beach', title2: 'Plan your next beach trip with these fabulous destinations'},
     {id: 3, title: 'Desert', title2: 'It\'s the desert you\'ve always dreamed of'},
@@ -10,7 +10,9 @@ const toHTML = view => `
         <div class="content card-body">
             <h2 class="title">${view.title}</h2>
             <p class="copy">${view.title2}</p>
-            <button class="btn btn-primary" data-btn="Trips" data-id="${view.id}">View Trips</button>
+            <button class="btn" data-btn="trips" data-id="${view.id}">View Trips</button>
+                        <button class="btn" data-btn="remove" data-id="${view.id}">Delete Trip</button>
+
         </div>
     </div>
 `
@@ -37,13 +39,21 @@ document.addEventListener('click', event => {
     event.preventDefault()
     const btnType = event.target.dataset.btn
     const  id = +event.target.dataset.id
+    const view = views.find(f => f.id === id)
 
-    if (btnType === 'Trips') {
-        const view = views.find(f => f.id === id)
-        modalView.setContent(`
-        <strong>${view.title}<p>${view.title2}</p></strong>
-        `)
+    if (btnType === 'trips') {
+        modalView.setContent(`<strong>${view.title}<p>${view.title2}</p></strong>`)
         modalView.open()
+    } else if (btnType === 'remove') {
+        $.confirm( {
+            title: 'Are you sure?',
+            content: `<p>You are delete trip: <strong>${view.title}</strong></p>`
+        }).then(() => {
+            views = views.filter(f => f.id !== id)
+            render()
+        }).catch(() => {
+            console.log('Cancel')
+        })
     }
 })
 

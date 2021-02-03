@@ -1,20 +1,19 @@
 let views = [
-    {id: 1, title: 'Mountain', title2: 'Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains'},
-    {id: 2, title: 'Beach', title2: 'Plan your next beach trip with these fabulous destinations'},
-    {id: 3, title: 'Desert', title2: 'It\'s the desert you\'ve always dreamed of'},
-    {id: 4, title: 'Galaxy', title2: 'Seriously, straight up, just blast off into outer space today'}
+    {id: 1, title: 'Mountain', title2: 'Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains', image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ)"},
+    {id: 2, title: 'Beach', title2: 'Plan your next beach trip with these fabulous destinations', image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ)"},
+    {id: 3, title: 'Desert', title2: 'It\'s the desert you\'ve always dreamed of', image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ)"},
+    {id: 4, title: 'Galaxy', title2: 'Seriously, straight up, just blast off into outer space today', image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ)"}
 ]
 
 const toHTML = view => `
- <div class="card" >
-        <div class="content card-body">
-            <h2 class="title">${view.title}</h2>
-            <p class="copy">${view.title2}</p>
-            <button class="btn" data-btn="trips" data-id="${view.id}">View Trips</button>
-                        <button class="btn" data-btn="remove" data-id="${view.id}">Delete Trip</button>
-
-        </div>
-    </div>
+     <div class="card" >
+           <div class="content card-body">
+                   <h2 class="title"> ${view.title} </h2>
+                   <p class="copy"> ${view.title2}> </p>
+                   <button class="btn" data-btn="trips" data-id="${view.id}"> View Trips </button>
+                   <button class="btn" data-btn="remove" data-id="${view.id}"> Delete Trip </button>
+          </div>
+     </div>
 `
 
 function render() {
